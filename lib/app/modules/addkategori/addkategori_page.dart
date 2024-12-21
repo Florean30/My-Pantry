@@ -4,17 +4,17 @@ import 'package:flutter/services.dart';
 import 'addkategori_controller.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
 
-class AddKategoriPage extends StatefulWidget {
-  const AddKategoriPage({super.key});
+class AddkategoriPage extends StatefulWidget {
+  const AddkategoriPage({super.key});
 
   @override
-  State<AddKategoriPage> createState() => AddKategoriPageState();
+  State<AddkategoriPage> createState() => AddkategoriPageState();
 }
 
-class AddKategoriPageState extends State<AddKategoriPage> {
+class AddkategoriPageState extends State<AddkategoriPage> {
   final _formKey = GlobalKey<FormState>();
   String _name = '';
-  String? _imagePath;
+  // String? _imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +25,24 @@ class AddKategoriPageState extends State<AddKategoriPage> {
           padding: const EdgeInsets.fromLTRB(16, 95, 16, 537),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'Tambah Jenis Bahan\nMakanan',
-                style: const TextStyle(
+                style: TextStyle(
                   color: Color(0xFF212121),
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                 ),
                 textAlign: TextAlign.center,
               ),
+
+
+              const Divider(
+                color: AppColors.darkgreen,
+                thickness: 4,
+                indent: 20,
+                endIndent: 20,
+              ),
+              
               const SizedBox(height: 20),
               Container(
                 padding: const EdgeInsets.fromLTRB(7, 16, 7, 6),
@@ -51,9 +60,9 @@ class AddKategoriPageState extends State<AddKategoriPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Nama : Umbi-umbian',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: Color(0xFF212121),
                                 fontSize: 12,
                               ),
@@ -61,9 +70,9 @@ class AddKategoriPageState extends State<AddKategoriPage> {
                             const SizedBox(height: 18),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   'Gambar :',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     color: Color(0xFF212121),
                                     fontSize: 12,
                                   ),
@@ -84,9 +93,9 @@ class AddKategoriPageState extends State<AddKategoriPage> {
                                       ),
                                     ],
                                   ),
-                                  child: Text(
+                                  child: const Text(
                                     'Add Photo',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       color: Color(0xFF3D3D3D),
                                       fontSize: 10,
                                     ),

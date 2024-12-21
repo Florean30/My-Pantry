@@ -11,6 +11,7 @@ import 'profile_routes.dart';
 import 'editprofile_routes.dart';
 import 'addjenis_routes.dart';
 import 'addkategori_routes.dart';
+import 'listkategori_routes.dart';
 
 class AppPages {
   AppPages._();
@@ -31,6 +32,7 @@ class AppPages {
 		...KelolaRoutes.routes,
 		
 		...AddjenisRoutes.routes,
-		// ...AddkategoriRoutes.routes,
+		...AddkategoriRoutes.routes,
+		...ListkategoriRoutes.routes,
   ];
 }

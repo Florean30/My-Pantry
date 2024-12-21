@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
+import 'package:mypantry_app/app/routes/editprofile_routes.dart';
+import 'package:mypantry_app/app/routes/login_routes.dart';
 import 'profile_controller.dart';
 import 'package:mypantry_app/app/core/widgets/custom_text_field.dart';
 import 'package:mypantry_app/app/core/widgets/custom_submit_button.dart';
@@ -48,12 +50,12 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 43),
+              const SizedBox(height: 5),
               Center(
                 child: Image.asset(
                   'assets/images/icon/profile.png',
-                  width: 80,
-                  height: 80,
+                  width: 110,
+                  height: 110,
                 ),
               ),
               CustomTextField(
@@ -71,56 +73,56 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 138),
               
               Center(
-                child: ElevatedButton(
+                child: TextButton(
                   onPressed: () {
-                    Get.back();
+                    Get.toNamed(EditprofileRoutes.editprofile);
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.orange,
-                    minimumSize: const Size(80, 40),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 50,
-                      vertical: 10,
-                    ),
-                  ),
-                  child: Text(
-                    'Edit',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      
+                      Text(
+                        'Edit',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.orange,
+                        ),
+                      ),
+                      Image.asset(
+                        'assets/images/icon/edit.png',
+                        width: 50,
+                        height: 50,
+                      ),
+                    ],
                   ),
                 ),
               ),
               Center(
-                child: ElevatedButton(
+                child: TextButton(
                   onPressed: () {
-                    Get.back();
+                    Get.toNamed(LoginRoutes.login);
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.orange,
-                    minimumSize: const Size(80, 40),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 50,
-                      vertical: 10,
-                    ),
-                  ),
-                  child: Text(
-                    'Logout',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Logout',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.orange,
+                        ),
+                      ),
+                         Image.asset(
+                        'assets/images/icon/logout.png',
+                        width: 50,
+                        height: 50,
+                      ),
+                    ],
                   ),
                 ),
+             
               ),
             ],
           ),

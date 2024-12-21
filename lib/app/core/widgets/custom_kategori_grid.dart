@@ -11,23 +11,23 @@ class CustomKategoriGrid extends StatelessWidget {
       child: Row(
         children: [
           CustomKategoriItemGrid(
-            imagePath: "assets/images/kategori/buah.png",
+            imagePath: "assets/images/kategori/buah.jpg",
             title: "Buah-buahan",
           ),
           CustomKategoriItemGrid(
-            imagePath: "assets/images/kategori/sayur.png",
+            imagePath: "assets/images/kategori/sayur.jpg",
             title: "Sayuran",
           ),
           CustomKategoriItemGrid(
-            imagePath: "assets/images/kategori/lauk.png",
+            imagePath: "assets/images/kategori/lauk.jpg",
             title: "Lauk Pauk",
           ),
           CustomKategoriItemGrid(
-            imagePath: "assets/images/kategori/kering.png",
+            imagePath: "assets/images/kategori/kering.jpg",
             title: "Bumbu Kering",
           ),
           CustomKategoriItemGrid(
-            imagePath: "assets/images/kategori/basah.png",
+            imagePath: "assets/images/kategori/basah.jpg",
             title: "Bumbu Basah",
           ),
         ],
