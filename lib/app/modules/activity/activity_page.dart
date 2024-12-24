@@ -40,7 +40,7 @@ class ActivityPage extends GetView<ActivityController> {
                 style: TextStyle(
                   color: AppColors.black,
                   fontSize: 20,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -132,7 +132,10 @@ class ActivityPage extends GetView<ActivityController> {
                 children: [
                   // Tombol print
                   InkWell(
-                    onTap: () {},
+                    onTap: () async {
+                      // Memanggil fungsi untuk mengunduh PDF dari controller
+                      await controller.downloadActivityPDF();
+                    },
                     child: Image.asset(
                       "assets/images/icon/print.png",
                       width: 50.0,

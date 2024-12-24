@@ -13,6 +13,7 @@ import 'listkategori_routes.dart';
 import 'kelola_routes.dart'; 
 import 'activity_routes.dart'; 
 import 'notif_routes.dart';
+import 'detailnotif_routes.dart';
 
 class AppPages {
   AppPages._();
@@ -34,5 +35,6 @@ class AppPages {
     ...KelolaRoutes.routes,
     ...ActivityRoutes.routes,
 		...NotifRoutes.routes,
+		...DetailnotifRoutes.routes,
   ];
 }

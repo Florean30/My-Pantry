@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mypantry_app/app/core/theme/app_color.dart';
-import 'package:mypantry_app/app/routes/kelola_routes.dart';
 import 'notif_controller.dart';
+import 'package:mypantry_app/app/core/theme/app_color.dart';
+import 'package:mypantry_app/app/core/widgets/custom_footer_home.dart';
+import 'package:mypantry_app/app/routes/detailnotif_routes.dart';
 
 class NotifPage extends GetView<NotifController> {
   const NotifPage({super.key});
@@ -109,7 +110,7 @@ class NotifPage extends GetView<NotifController> {
                                     ),
                                   ),
                                   onPressed: () {
-                                    Get.toNamed(KelolaRoutes.kelola);
+                                    Get.toNamed(DetailnotifRoutes.detailnotif);
                                   },
                                   child: const Text("Lihat"),
                                 ),
@@ -126,6 +127,7 @@ class NotifPage extends GetView<NotifController> {
           ),
         ],
       ),
+      bottomNavigationBar: const CustomFooterHome(),
     );
   }
 }

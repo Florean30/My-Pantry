@@ -79,59 +79,107 @@ class RegisterPage extends GetView<RegisterController> {
                 validator: controller.validateEmail,
                 hintText: 'Enter your email',
               ),
-              // Input field untuk password
-              CustomTextField(
-                label: 'Password',
-                controller: controller.passwordController,
-                isPassword: true,
-                validator: controller.validatePassword,
-                hintText: 'Password',
-                // Icon untuk menampilkan/menyembunyikan password
-                suffixIcon: Obx(() {
-                  return GestureDetector(
-                    onTap: () {
-                      controller.isPasswordVisible.value =
-                          !controller.isPasswordVisible.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset(
-                        controller.isPasswordVisible.value
-                            ? 'assets/images/icon/eyeoff.png'
-                            : 'assets/images/icon/eyeon.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
-                  );
-                }),
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.only(left: 27),
+                child: Text(
+                  'Password',
+                  style: TextStyle(
+                    color: AppColors.orange,
+                    fontSize: 14,
+                  ),
+                ),
               ),
-              // Field input ulang password
-              CustomTextField(
-                label: 'Repeat Password',
-                controller: controller.repeatPasswordController,
-                isPassword: true,
-                validator: controller.validateRepeatPassword,
-                // Icon untuk menampilkan/menyembunyikan password
-                suffixIcon: Obx(() {
-                  return GestureDetector(
-                    onTap: () {
-                      controller.isRepeatPasswordVisible.value =
-                          !controller.isRepeatPasswordVisible.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset(
-                        controller.isRepeatPasswordVisible.value
-                            ? 'assets/images/icon/eyeoff.png'
-                            : 'assets/images/icon/eyeon.png',
-                        width: 5,
-                        height: 5,
-                      ),
+              Obx(() {
+                return TextFormField(
+                  obscureText: controller.isPasswordVisible
+                      .value, // Mengatur visibility text untuk password
+
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: AppColors.lightgreen,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 10,
                     ),
-                  );
-                }), hintText: 'Repeat password',
+                    // Mengatur border dan radius
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      borderSide: BorderSide.none,
+                    ),
+                    suffixIcon: Obx(
+                      () {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.isPasswordVisible.value =
+                                !controller.isPasswordVisible.value;
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Image.asset(
+                              controller.isPasswordVisible.value
+                                  ? 'assets/images/icon/eyeoff.png'
+                                  : 'assets/images/icon/eyeon.png',
+                              width: 5,
+                              height: 5,
+                            ),
+                          ),
+                        );
+                      }, // Menambahkan icon di bagian kanan
+                    ),
+                  ),
+                );
+              }), // Field input ulang password
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.only(left: 27),
+                child: Text(
+                  'Repeat Password',
+                  style: TextStyle(
+                    color: AppColors.orange,
+                    fontSize: 14,
+                  ),
+                ),
               ),
+              Obx(() {
+                return TextFormField(
+                  obscureText: controller.isRepeatPasswordVisible.value, // Mengatur visibility text untuk password
+
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: AppColors.lightgreen,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 10,
+                    ),
+                    // Mengatur border dan radius
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      borderSide: BorderSide.none,
+                    ),
+                    suffixIcon: Obx(
+                      () {
+                        return GestureDetector(
+                          onTap: () {
+                            controller.isRepeatPasswordVisible.value =
+                                !controller.isRepeatPasswordVisible.value;
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Image.asset(
+                              controller.isPasswordVisible.value
+                                  ? 'assets/images/icon/eyeoff.png'
+                                  : 'assets/images/icon/eyeon.png',
+                              width: 5,
+                              height: 5,
+                            ),
+                          ),
+                        );
+                      }, // Menambahkan icon di bagian kanan
+                    ),
+                  ),
+                );
+              }),
               const SizedBox(height: 50),
               // Tombol Register
               Center(

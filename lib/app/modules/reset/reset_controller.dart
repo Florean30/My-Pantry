@@ -12,6 +12,9 @@ class ResetController extends GetxController {
   // Status loading untuk menampilkan indikator loading
   final isLoading = false.obs;
 
+  final isNewPasswordVisible = false.obs;
+  final isConfirmPasswordVisible = false.obs;
+
   // Membersihkan controller saat widget dihapus
   @override
   void onClose() {
