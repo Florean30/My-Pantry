@@ -1,10 +1,7 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart' as getx;
-import 'package:mypantry_app/app/core/services/api_endpoint.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:mypantry_app/app/core/services/api_endpoint.dart';
 
 class ApiRequest {
   Dio _dio = Dio();

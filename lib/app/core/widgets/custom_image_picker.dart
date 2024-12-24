@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 
+// Widget kustom untuk memilih gambar
 class ImagePicker extends StatelessWidget {
+  // Path gambar yang dipilih
   final String imagePath;
+  // Fungsi yang akan dijalankan saat widget di tap
   final VoidCallback onTap;
 
   const ImagePicker({
@@ -13,19 +16,23 @@ class ImagePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Widget GestureDetector untuk mendeteksi tap
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: 150,
         height: 150,
+        // Dekorasi container dengan warna abu-abu dan border radius
         decoration: BoxDecoration(
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(10),
         ),
+        // Conditional rendering berdasarkan imagePath
         child: imagePath.isEmpty
-            ? Column(
+            // Tampilan default ketika tidak ada gambar dipilih
+            ? const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(
                     Icons.image,
                     size: 50,
@@ -40,6 +47,7 @@ class ImagePicker extends StatelessWidget {
                   ),
                 ],
               )
+            // Tampilan ketika ada gambar yang dipilih
             : ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.file(
@@ -50,4 +58,4 @@ class ImagePicker extends StatelessWidget {
       ),
     );
   }
-} 
+}

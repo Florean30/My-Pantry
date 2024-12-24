@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mypantry_app/app/core/theme/app_color.dart';
 import 'register_controller.dart';
+import 'package:mypantry_app/app/core/theme/app_color.dart';
 import 'package:mypantry_app/app/core/widgets/custom_text_field.dart';
-import 'package:mypantry_app/app/core/widgets/custom_submit_button.dart';
 
-class RegisterPage extends StatelessWidget {
+// Halaman untuk register
+class RegisterPage extends GetView<RegisterController> {
   const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Inisialisasi controller menggunakan GetX
     final controller = Get.put(RegisterController());
 
     return Scaffold(
+      // Mengatur warna latar belakang
       backgroundColor: AppColors.deepwhite,
       body: SingleChildScrollView(
+        // Menambahkan padding horizontal dan vertikal
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Form(
-          key: controller.formKey, // Tambahkan form key
+          // Membuat form dengan key untuk validasi
+          key: controller.formKey,
           child: Column(
+            // Mengatur posisi elemen secara vertikal
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Tombol kembali dengan gambar
               SafeArea(
                 child: InkWell(
                   onTap: () {
@@ -37,7 +43,8 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 41),
+              const SizedBox(height: 40),
+              // Judul halaman Register
               const Center(
                 child: Text(
                   'Register',
@@ -48,30 +55,38 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 43),
+              const SizedBox(height: 5),
+              // Gambar profil
               Center(
                 child: Image.asset(
                   'assets/images/icon/profile.png',
-                  width: 80,
-                  height: 80,
+                  width: 150,
+                  height: 150,
                 ),
               ),
+              // Input field untuk nama
               CustomTextField(
                 label: 'Name',
                 controller: controller.nameController,
                 validator: controller.validateName,
+                hintText: 'Enter your name',
               ),
+              // Input field untuk email
               CustomTextField(
                 label: 'Email',
                 controller: controller.emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: controller.validateEmail,
+                hintText: 'Enter your email',
               ),
+              // Input field untuk password
               CustomTextField(
                 label: 'Password',
                 controller: controller.passwordController,
                 isPassword: true,
                 validator: controller.validatePassword,
+                hintText: 'Password',
+                // Icon untuk menampilkan/menyembunyikan password
                 suffixIcon: Obx(() {
                   return GestureDetector(
                     onTap: () {
@@ -91,11 +106,13 @@ class RegisterPage extends StatelessWidget {
                   );
                 }),
               ),
+              // Field input ulang password
               CustomTextField(
                 label: 'Repeat Password',
                 controller: controller.repeatPasswordController,
                 isPassword: true,
                 validator: controller.validateRepeatPassword,
+                // Icon untuk menampilkan/menyembunyikan password
                 suffixIcon: Obx(() {
                   return GestureDetector(
                     onTap: () {
@@ -105,7 +122,7 @@ class RegisterPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Image.asset(
-                        controller.isPasswordVisible.value
+                        controller.isRepeatPasswordVisible.value
                             ? 'assets/images/icon/eyeoff.png'
                             : 'assets/images/icon/eyeon.png',
                         width: 5,
@@ -113,9 +130,10 @@ class RegisterPage extends StatelessWidget {
                       ),
                     ),
                   );
-                }),
+                }), hintText: 'Repeat password',
               ),
-              const SizedBox(height: 138),
+              const SizedBox(height: 50),
+              // Tombol Register
               Center(
                 child: ElevatedButton(
                   onPressed: () {
@@ -128,15 +146,15 @@ class RegisterPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 50,
+                      horizontal: 40,
                       vertical: 10,
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Register',
                     style: TextStyle(
                       fontSize: 18,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),

@@ -1,98 +1,86 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/services.dart';
-import 'package:mypantry_app/app/routes/login_routes.dart';
 import 'reset_controller.dart';
+import 'package:mypantry_app/app/routes/login_routes.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
-import 'package:mypantry_app/app/core/widgets/custom_password_input.dart';
+import 'package:mypantry_app/app/core/widgets/custom_password_Input.dart';
 
-
+// Halaman untuk mereset password
 class ResetPage extends GetView<ResetController> {
-  const ResetPage({Key? key}) : super(key: key);
+  const ResetPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Mengatur warna latar belakang halaman
       backgroundColor: AppColors.deepwhite,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Image.asset(
-            'assets/images/icon/back.png',
-            width: 38,
-            height: 38,
-          ),
-          onPressed: () => Get.back(),
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
+          // Memberikan padding horizontal 16
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Form(
-            key: controller.formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 24),
-                Center(
-                  child: Text(
-                    'New Password',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.deepblack,
-                      
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                CustomPasswordInput(
-                  label: 'New Password',
-                  hintText: '',
-                  controller: controller.passwordController,
-      
-                  validator: (value) => controller.validatePassword(value),
-                ),
-                const SizedBox(height: 16),
-                CustomPasswordInput(
-                  label: 'Confirm Password',
-                  controller: controller.confirmPasswordController,
-                  hintText: '',
-                  validator: (value) => controller.validateConfirmPassword(value),
-                ),
-                const SizedBox(height: 32),
-                Obx(() => SizedBox(
-                  width: double.infinity,
-                  height: 50,
-
-                  
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Get.offNamed(LoginRoutes.login);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.orange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      minimumSize: const Size(150, 40),
-                    ),
-                    child: const Text(
-                      'Submit',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: AppColors.deepwhite,
-                        fontFamily: 'Nunito',
-                      ),
+          child: Column(
+            children: [
+              // Spacing atas
+              const SizedBox(height: 16),
+              // Widget untuk tombol kembali
+              SafeArea(
+                child: InkWell(
+                  onTap: () {
+                    // Kembali ke halaman sebelumnya
+                    Get.back();
+                  },
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Image.asset(
+                      'assets/images/icon/back.png',
+                      width: 40,
+                      height: 40,
                     ),
                   ),
                 ),
               ),
-                )
-              ],
-            ),
+              const SizedBox(height: 40),
+              // Judul halaman
+              const Text(
+                'New Password',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.black,
+                ),
+              ),
+              const SizedBox(height: 34),
+              // Widget input email (custom widget)
+              const PasswordInput(),
+              const SizedBox(height: 230),
+              // Tombol Get OTP
+              ElevatedButton(
+                onPressed: () {
+                  // Navigasi ke halaman verifikasi
+                  Get.toNamed(LoginRoutes.login);
+                },
+                // Styling tombol
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.orange,
+                  minimumSize: const Size(80, 40),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 40,
+                    vertical: 5,
+                  ),
+                ),
+                child: const Text(
+                  'Submit',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

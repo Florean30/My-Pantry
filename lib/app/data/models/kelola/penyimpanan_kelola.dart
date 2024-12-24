@@ -1,7 +1,4 @@
-enum Storage {
-  kulkas,
-  lemari
-}
+enum Storage { kulkas, lemari }
 
 extension StorageExtension on Storage {
   String get name {

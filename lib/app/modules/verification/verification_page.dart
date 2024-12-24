@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/services.dart';
-import 'package:mypantry_app/app/routes/reset_routes.dart';
 import 'verification_controller.dart';
+import 'package:mypantry_app/app/routes/reset_routes.dart';
+import 'package:mypantry_app/app/core/theme/app_color.dart';
 import 'package:mypantry_app/app/core/widgets/custom_verification_timer.dart';
 import 'package:mypantry_app/app/core/widgets/custom_verification_code_input.dart';
-import 'package:mypantry_app/app/core/theme/app_color.dart';
 
+// Halaman untuk verifikasi 
 class VerificationPage extends GetView<VerificationController> {
-  const VerificationPage({Key? key}) : super(key: key);
+  const VerificationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +20,7 @@ class VerificationPage extends GetView<VerificationController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Tombol kembali di pojok kiri atas
               SafeArea(
                 child: InkWell(
                   onTap: () {
@@ -35,34 +36,42 @@ class VerificationPage extends GetView<VerificationController> {
                   ),
                 ),
               ),
-              const SizedBox(height: 41),
-              Center(
-                child: const Text(
+              const SizedBox(height: 40),
+
+              // Judul halaman
+              const Center(
+                child: Text(
                   'Verification',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: AppColors.deepblack,
-                    fontFamily: 'Nunito',
                   ),
                 ),
               ),
-              const SizedBox(height: 59),
-              Center(child: const VerificationTimer()),
-              const SizedBox(height: 22),
+              const SizedBox(height: 40),
+
+              // Widget timer verifikasi
+              const Center(child: VerificationTimer()),
+              const SizedBox(height: 20),
+
+              // Widget input kode verifikasi
               const VerificationCodeInput(),
-              const SizedBox(height: 22),
-              Center(
+              const SizedBox(height: 20),
+
+              // Teks petunjuk
+              const Center(
                 child: Text(
-                  'Enter your code from the email we send you',
+                  'Enter your code from the email we send you.',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.black87,
-                    fontFamily: 'Nunito',
                   ),
                 ),
               ),
-              const SizedBox(height: 164),
+              const SizedBox(height: 160),
+
+              // Tombol Submit
               Center(
                 child: ElevatedButton(
                   onPressed: () {
@@ -71,46 +80,50 @@ class VerificationPage extends GetView<VerificationController> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.orange,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(40),
                     ),
-                    minimumSize: const Size(150, 40),
+                    padding: const EdgeInsets.symmetric(
+                    horizontal: 40,
+                    vertical: 5,
+                  ),
                   ),
                   child: const Text(
                     'Submit',
                     style: TextStyle(
                       fontSize: 18,
+                      fontWeight: FontWeight.bold,
                       color: AppColors.deepwhite,
-                      fontFamily: 'Nunito',
                     ),
                   ),
                 ),
               ),
-              
+
+              // Tombol Resend
               Center(
                 child: TextButton(
                   onPressed: () {},
                   child: RichText(
                     text: const TextSpan(
                       children: [
+                        // Teks "I didn't receive the code!"
                         TextSpan(
                           text: "I didn't receive the code! ",
                           style: TextStyle(
                             color: AppColors.deepblack,
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Nunito',
                           ),
                         ),
+                        // Teks "Resend" dengan garis bawah
                         TextSpan(
                           text: 'Resend',
                           style: TextStyle(
                             color: AppColors.deepblack,
-                            fontSize: 12,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,
                             decorationColor: AppColors.deepblack,
                             decorationThickness: 2,
-                            fontFamily: 'Nunito',
                           ),
                         ),
                       ],

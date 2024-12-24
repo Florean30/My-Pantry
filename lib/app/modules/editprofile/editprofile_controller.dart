@@ -56,12 +56,9 @@ class EditProfileController extends GetxController {
   // Method untuk update profile
   void updateProfile() {
     if (formKey.currentState!.validate()) {
-      // Implementasi logika update profile disini
-      // Misalnya panggil API atau update ke database
-      
       Get.back(); // Kembali ke halaman sebelumnya setelah berhasil update
       Get.snackbar(
-        'Sukses', 
+        'Sukses',
         'Profile berhasil diperbarui',
         backgroundColor: Colors.green,
         colorText: Colors.white,

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class ProfileController extends GetxController {
   // Form key untuk validasi
   final formKey = GlobalKey<FormState>();
-  
+
   // Text controllers
   final nameController = TextEditingController();
   final emailController = TextEditingController();
@@ -26,7 +26,6 @@ class ProfileController extends GetxController {
 
   // Fungsi untuk memuat data user
   void loadUserData() {
-    // TODO: Implementasi load data dari storage/API
     // Contoh dummy data
     nameController.text = "John Doe";
     emailController.text = "johndoe@example.com";
@@ -54,7 +53,6 @@ class ProfileController extends GetxController {
   // Fungsi untuk update profile
   void updateProfile() {
     if (formKey.currentState!.validate()) {
-      // TODO: Implementasi update profile ke storage/API
       Get.snackbar(
         'Sukses',
         'Profile berhasil diperbarui',
@@ -65,7 +63,6 @@ class ProfileController extends GetxController {
 
   // Fungsi untuk logout
   void logout() {
-    // TODO: Implementasi logout
     // Contoh: Clear storage, reset state, dll
     Get.offAllNamed('/login'); // Navigate ke halaman login
   }

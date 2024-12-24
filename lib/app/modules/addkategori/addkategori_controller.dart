@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:mypantry_app/app/core/widgets/custom_image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
+// import 'package:mypantry_app/app/core/widgets/custom_image_picker.dart';
 
 class AddKategoriController extends GetxController {
   // Variable observable
@@ -9,10 +9,10 @@ class AddKategoriController extends GetxController {
   // Instance image picker
   // final ImagePicker picker = ImagePicker();
 
-  // Method untuk mengambil gambar dari galeri 
+  // Method untuk mengambil gambar dari galeri
   // Future<void> getImage() async {
   //   final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-    
+
   //   if (image != null) {
   //     imagePath.value = image.path;
   //   }
@@ -22,15 +22,12 @@ class AddKategoriController extends GetxController {
   void saveKategori() {
     if (namaKategori.value.isEmpty) {
       Get.snackbar(
-        'Error', 
+        'Error',
         'Nama kategori tidak boleh kosong',
         snackPosition: SnackPosition.BOTTOM,
       );
       return;
     }
-
-    // TODO: Implementasi penyimpanan ke database
-    // Disini nanti bisa ditambahkan logic untuk menyimpan ke database
 
     Get.back(); // Kembali ke halaman sebelumnya
     Get.snackbar(

@@ -8,7 +8,7 @@ class IntroController extends GetxController {
   void onInit() async {
     super.onInit();
     // Menunda eksekusi selama 1 detik untuk menampilkan splash-screen
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
     // Navigasi ke halaman login dan menghapus halaman sebelumnya dari stack
     Get.offNamed(LoginRoutes.login);
   }

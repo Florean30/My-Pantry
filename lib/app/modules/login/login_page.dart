@@ -1,13 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mypantry_app/app/routes/forgot_routes.dart';
-import 'package:mypantry_app/app/routes/home_routes.dart';
-import 'package:mypantry_app/app/routes/register_routes.dart';
 import 'login_controller.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:mypantry_app/app/routes/home_routes.dart';
+import 'package:mypantry_app/app/routes/register_routes.dart';
+import 'package:mypantry_app/app/routes/forgot_routes.dart';
 
+// Halaman Login yang menggunakan GetX Controller
 class LoginPage extends GetView<LoginController> {
   const LoginPage({super.key});
 
@@ -16,10 +16,10 @@ class LoginPage extends GetView<LoginController> {
     return Scaffold(
         backgroundColor: AppColors.deepwhite,
         body: Stack(children: [
-          // Background Image 
+          // Background Image
           Positioned.fill(
             child: Image.asset(
-              'assets/images/bg.png', 
+              'assets/images/bg.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -44,14 +44,14 @@ class LoginPage extends GetView<LoginController> {
                                 width: 130,
                                 height: 130,
                               ),
-                              
+
                               // Judul aplikasi dengan 2 warna berbeda
                               RichText(
-                                text: TextSpan(
+                                text: const TextSpan(
                                   children: [
                                     TextSpan(
                                       text: 'My',
-                                      style: GoogleFonts.nunito(
+                                      style: TextStyle(
                                         fontSize: 40,
                                         fontWeight: FontWeight.bold,
                                         color: AppColors.black,
@@ -59,7 +59,7 @@ class LoginPage extends GetView<LoginController> {
                                     ),
                                     TextSpan(
                                       text: 'Pantry',
-                                      style: GoogleFonts.nunito(
+                                      style: TextStyle(
                                         fontSize: 40,
                                         fontWeight: FontWeight.bold,
                                         color: AppColors.orange,
@@ -70,16 +70,16 @@ class LoginPage extends GetView<LoginController> {
                               ),
 
                               const SizedBox(height: 70),
-                              
+
                               // Input field untuk email
                               SizedBox(
                                 width: 400,
                                 height: 40,
                                 child: TextFormField(
-                                  style: GoogleFonts.nunito(fontSize: 14),
+                                  style: const TextStyle(fontSize: 14),
                                   decoration: InputDecoration(
                                     labelText: 'Email',
-                                    labelStyle: GoogleFonts.nunito(
+                                    labelStyle: const TextStyle(
                                       color: AppColors.black,
                                       fontSize: 14,
                                     ),
@@ -94,7 +94,7 @@ class LoginPage extends GetView<LoginController> {
                               ),
 
                               const SizedBox(height: 5),
-                              
+
                               // Input field untuk password dengan toggle visibility
                               Obx(() {
                                 return SizedBox(
@@ -102,12 +102,12 @@ class LoginPage extends GetView<LoginController> {
                                   height: 40,
                                   child: TextFormField(
                                     controller: controller.passwordController,
-                                    style: GoogleFonts.nunito(fontSize: 14),
+                                    style: const TextStyle(fontSize: 14),
                                     obscureText:
                                         controller.isPasswordVisible.value,
                                     decoration: InputDecoration(
                                       labelText: 'Password',
-                                      labelStyle: GoogleFonts.nunito(
+                                      labelStyle: const TextStyle(
                                         color: AppColors.black,
                                         fontSize: 14,
                                       ),
@@ -115,7 +115,6 @@ class LoginPage extends GetView<LoginController> {
                                       fillColor: AppColors.deepwhite,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(40),
-                                        
                                         borderSide: BorderSide.none,
                                       ),
                                       suffixIcon: GestureDetector(
@@ -145,9 +144,9 @@ class LoginPage extends GetView<LoginController> {
                                   onPressed: () {
                                     Get.toNamed(ForgotRoutes.forgot);
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'Forgot Password?',
-                                    style: GoogleFonts.nunito(
+                                    style: TextStyle(
                                       color: AppColors.black,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14,
@@ -157,10 +156,12 @@ class LoginPage extends GetView<LoginController> {
                               ),
 
                               const SizedBox(height: 30),
-                              
+
                               // Tombol Login
                               ElevatedButton(
-                                onPressed: () {Get.offAllNamed(HomeRoutes.home);},
+                                onPressed: () {
+                                  Get.offAllNamed(HomeRoutes.home);
+                                },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: AppColors.orange,
                                   minimumSize: const Size(80, 40),
@@ -168,29 +169,29 @@ class LoginPage extends GetView<LoginController> {
                                     borderRadius: BorderRadius.circular(40),
                                   ),
                                   padding: const EdgeInsets.symmetric(
-                                    horizontal: 50,
-                                    vertical: 10,
+                                    horizontal: 40,
+                                    vertical: 5,
                                   ),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Login',
-                                  style: GoogleFonts.nunito(
+                                  style: TextStyle(
                                     fontSize: 18,
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
 
                               const SizedBox(height: 10),
-                              
+
                               // Link untuk register akun baru
                               RichText(
                                 text: TextSpan(
                                   children: [
-                                    TextSpan(
+                                    const TextSpan(
                                       text: "Don't have an account? ",
-                                      style: GoogleFonts.nunito(
+                                      style: TextStyle(
                                         color: AppColors.black,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,
@@ -198,7 +199,7 @@ class LoginPage extends GetView<LoginController> {
                                     ),
                                     TextSpan(
                                       text: 'Register',
-                                      style: GoogleFonts.nunito(
+                                      style: const TextStyle(
                                         color: AppColors.black,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,

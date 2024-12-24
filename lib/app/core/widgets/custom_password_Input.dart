@@ -1,81 +1,97 @@
 import 'package:flutter/material.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
 
-class CustomPasswordInput extends StatefulWidget {
-  final String label;
-  final TextEditingController controller;
-  final String hintText;
-  final String? Function(String?)? validator;
-
-  const CustomPasswordInput({
-    Key? key,
-    required this.label,
-    required this.controller,
-    required this.hintText,
-    this.validator,
-  }) : super(key: key);
-
-  @override
-  State<CustomPasswordInput> createState() => _CustomPasswordInputFieldState();
-}
-
-class _CustomPasswordInputFieldState extends State<CustomPasswordInput> {
-  bool _isPasswordVisible = false;
+// Widget untuk input email
+class PasswordInput extends StatelessWidget {
+  const PasswordInput({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          widget.label,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: Colors.black87,
-          ),
-        ),
-        const SizedBox(height: 8),
-        TextFormField(
-          controller: widget.controller,
-          obscureText: !_isPasswordVisible,
-          validator: widget.validator,
-          decoration: InputDecoration(
-            hintText: widget.hintText,
-            hintStyle: const TextStyle(
-              color: AppColors.lightgreen,
-              fontSize: 14,
-            ),
-            fillColor: AppColors.lightgreen,
-            filled: true,
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 12,
-            ),
-         border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide.none,
+    return Form(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Password field pertama
+          Center(
+            child: SizedBox(
+              width: 300,
+              height: 40,
+              child: TextFormField(
+                obscureText:
+                    true, // Menambahkan ini untuk menyembunyikan password
+                decoration: InputDecoration(
+                  labelText: 'New Password',
+                  labelStyle: const TextStyle(
+                    color: AppColors.black,
+                    fontSize: 14,
+                  ),
+                  filled: true,
+                  fillColor: AppColors.lightgreen,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40),
+                    borderSide: BorderSide.none,
+                  ),
+                  // suffixIcon: GestureDetector(
+                  //   onTap: () {
+                  //     controller.togglePasswordVisibility();
+                  //   },
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(12.0),
+                  //     child: Image.asset(
+                  //       controller.isPasswordVisible.value
+                  //           ? 'assets/images/icon/eyeoff.png'
+                  //           : 'assets/images/icon/eyeon.png',
+                  //       width: 5,
+                  //       height: 5,
+                  //     ),
+                  //   ),
+                  // ),
+                ),
               ),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide.none,
-              ),
-      
-           
-            suffixIcon: IconButton(
-              icon: Icon(
-                _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                color: AppColors.orange,
-              ),
-              onPressed: () {
-                setState(() {
-                  _isPasswordVisible = !_isPasswordVisible;
-                });
-              },
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 5),
+
+          // Password field kedua
+          Center(
+            child: SizedBox(
+              width: 300,
+              height: 40,
+              child: TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Confirm Password',
+                  labelStyle: const TextStyle(
+                    color: AppColors.black,
+                    fontSize: 14,
+                  ),
+                  filled: true,
+                  fillColor: AppColors.lightgreen,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40),
+                    borderSide: BorderSide.none,
+                  ),
+                  // suffixIcon: GestureDetector(
+                  //   onTap: () {
+                  //     controller.toggleRepeatPasswordVisibility();
+                  //   },
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(12.0),
+                  //     child: Image.asset(
+                  //       controller.isRepeatPasswordVisible.value
+                  //           ? 'assets/images/icon/eyeoff.png'
+                  //           : 'assets/images/icon/eyeon.png',
+                  //       width: 5,
+                  //       height: 5,
+                  //     ),
+                  //   ),
+                  // ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

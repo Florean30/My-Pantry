@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 class VerificationController extends GetxController {
   // Variable untuk menyimpan kode verifikasi
   final verificationCode = ''.obs;
-  
+
   // Variable untuk timer countdown (dalam detik)
   final remainingTime = 60.obs;
-  
+
   // Variable untuk mengontrol status pengiriman ulang
   final canResend = false.obs;
 
@@ -20,11 +20,11 @@ class VerificationController extends GetxController {
   void startTimer() {
     remainingTime.value = 60;
     canResend.value = false;
-    
+
     Future.doWhile(() async {
       await Future.delayed(const Duration(seconds: 1));
       remainingTime.value--;
-      
+
       if (remainingTime.value <= 0) {
         canResend.value = true;
         return false;
@@ -43,7 +43,7 @@ class VerificationController extends GetxController {
     if (canResend.value) {
       // Implementasi logika pengiriman ulang kode
       // Misalnya memanggil API untuk mengirim ulang kode
-      
+
       // Restart timer setelah mengirim ulang
       startTimer();
     }
@@ -63,7 +63,7 @@ class VerificationController extends GetxController {
     try {
       // Implementasi logika verifikasi kode
       // Misalnya memanggil API untuk memverifikasi kode
-      
+
       // Jika berhasil, navigasi ke halaman berikutnya
       Get.offNamed('/success');
     } catch (e) {

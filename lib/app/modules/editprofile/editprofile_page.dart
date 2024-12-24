@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mypantry_app/app/routes/home_routes.dart';
 import 'editprofile_controller.dart';
+import 'package:mypantry_app/app/routes/home_routes.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
 import 'package:mypantry_app/app/core/widgets/custom_text_field.dart';
 
-
-class EditProfilePage extends StatelessWidget {
+// Halaman untuk edit profile
+class EditProfilePage extends GetView<EditProfileController> {
   const EditProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Inisialisasi controller untuk halaman edit profil
     final controller = Get.put(EditProfileController());
 
     return Scaffold(
@@ -18,11 +19,13 @@ class EditProfilePage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Form(
-          key: controller.formKey, // Tambahkan form key
+          // Form key untuk validasi form
+          key: controller.formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Tombol kembali ke halaman sebelumnya
               SafeArea(
                 child: InkWell(
                   onTap: () {
@@ -39,6 +42,7 @@ class EditProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 41),
+              // Judul halaman dan gambar profil
               const Center(
                 child: Text(
                   'Edit Profile',
@@ -53,27 +57,31 @@ class EditProfilePage extends StatelessWidget {
               Center(
                 child: Image.asset(
                   'assets/images/icon/profile.png',
-                  width: 110,
-                  height: 110,
+                  width: 150,
+                  height: 150,
                 ),
               ),
+              // Field input untuk nama pengguna
               CustomTextField(
                 label: 'Name',
                 controller: controller.nameController,
-                validator: controller.validateName,
+                validator: controller.validateName, hintText: '',
               ),
+              // Field input untuk email
               CustomTextField(
                 label: 'Email',
                 controller: controller.emailController,
                 keyboardType: TextInputType.emailAddress,
-                validator: controller.validateEmail,
+                validator: controller.validateEmail, hintText: '',
               ),
+              // Field input untuk password dengan toggle visibility
               CustomTextField(
                 label: 'Password',
                 controller: controller.passwordController,
                 isPassword: true,
                 validator: controller.validatePassword,
                 suffixIcon: Obx(() {
+                  // Toggle untuk menampilkan/menyembunyikan password
                   return GestureDetector(
                     onTap: () {
                       controller.isPasswordVisible.value =
@@ -90,14 +98,16 @@ class EditProfilePage extends StatelessWidget {
                       ),
                     ),
                   );
-                }),
+                }), hintText: '',
               ),
+              // Field input untuk password baru dengan toggle visibility
               CustomTextField(
                 label: 'New Password',
                 controller: controller.repeatPasswordController,
                 isPassword: true,
                 validator: controller.validateRepeatPassword,
                 suffixIcon: Obx(() {
+                  // Toggle untuk menampilkan/menyembunyikan password baru
                   return GestureDetector(
                     onTap: () {
                       controller.isRepeatPasswordVisible.value =
@@ -114,10 +124,10 @@ class EditProfilePage extends StatelessWidget {
                       ),
                     ),
                   );
-                }),
+                }), hintText: '',
               ),
-              const SizedBox(height: 60),
-               Center(
+              const SizedBox(height: 40),
+              Center(
                 child: TextButton(
                   onPressed: () {
                     Get.offNamed(HomeRoutes.home);
@@ -125,19 +135,18 @@ class EditProfilePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
-                      Text(
+                      const Text(
                         'Save',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.bold,
                           color: AppColors.orange,
                         ),
                       ),
                       Image.asset(
                         'assets/images/icon/save.png',
-                        width: 50,
-                        height: 50,
+                        width: 40,
+                        height: 40,
                       ),
                     ],
                   ),

@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 
-class AddjenisController extends GetxController {
-  //TODO: Implement AddjenisController.
-
+class ActivityController extends GetxController {
   @override
   void onInit() {
     super.onInit();

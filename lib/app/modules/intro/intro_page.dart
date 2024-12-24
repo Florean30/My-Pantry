@@ -13,16 +13,14 @@ class IntroPage extends GetView<IntroController> {
       // Mengatur warna latar belakang menggunakan AppColors.deepwhite
       backgroundColor: AppColors.deepwhite,
       // Menggunakan GetBuilder untuk membangun UI yang reaktif
-      body: GetBuilder<IntroController>(
-        builder: (controller) {
-          // Menampilkan gambar splash-screen dari assets
-          return Image.asset(
-            'assets/images/splash-screen.jpg',
-            // BoxFit.cover membuat gambar mengisi seluruh ruang yang tersedia
-            fit: BoxFit.cover,
-          );
-        }
-      ),
+      body: GetBuilder<IntroController>(builder: (controller) {
+        // Menampilkan gambar splash-screen dari assets
+        return Image.asset(
+          'assets/images/splash-screen.jpg',
+          // BoxFit.cover membuat gambar mengisi seluruh ruang yang tersedia
+          fit: BoxFit.cover,
+        );
+      }),
     );
   }
 }

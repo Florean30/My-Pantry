@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mypantry_app/app/routes/verification_routes.dart';
 import 'forgot_controller.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
+import 'package:mypantry_app/app/routes/verification_routes.dart';
 import 'package:mypantry_app/app/core/widgets/custom_forgot.dart';
 
+// Halaman untuk lupa password
 class ForgotPage extends GetView<ForgotController> {
   const ForgotPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Mengatur warna latar belakang halaman
       backgroundColor: AppColors.deepwhite,
       body: SingleChildScrollView(
         child: Padding(
+          // Memberikan padding horizontal 16
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             children: [
+              // Spacing atas
               const SizedBox(height: 16),
+              // Widget untuk tombol kembali
               SafeArea(
                 child: InkWell(
                   onTap: () {
+                    // Kembali ke halaman sebelumnya
                     Get.back();
                   },
                   child: Align(
@@ -34,23 +39,27 @@ class ForgotPage extends GetView<ForgotController> {
                   ),
                 ),
               ),
-              const SizedBox(height: 41),
+              const SizedBox(height: 40),
+              // Judul halaman
               const Text(
                 'Forgot Password',
                 style: TextStyle(
-                  fontFamily: 'Nunito',
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: AppColors.black,
                 ),
               ),
               const SizedBox(height: 34),
+              // Widget input email (custom widget)
               const EmailInput(),
-              const SizedBox(height: 235),
+              const SizedBox(height: 230),
+              // Tombol Get OTP
               ElevatedButton(
                 onPressed: () {
+                  // Navigasi ke halaman verifikasi
                   Get.toNamed(VerificationRoutes.verification);
                 },
+                // Styling tombol
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.orange,
                   minimumSize: const Size(80, 40),
@@ -58,21 +67,19 @@ class ForgotPage extends GetView<ForgotController> {
                     borderRadius: BorderRadius.circular(40),
                   ),
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 50,
-                    vertical: 10,
+                    horizontal: 40,
+                    vertical: 5,
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'Get OTP',
-                  style: GoogleFonts.nunito(
+                  style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
               ),
-              const SizedBox(height: 274),
-              // const NavigationBar(),
             ],
           ),
         ),

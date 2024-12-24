@@ -1,18 +1,24 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
+// Controller untuk menangani status koneksi jaringan
 class NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
 
   @override
   void onInit() {
     super.onInit();
-    _connectivity.onConnectivityChanged.listen(_updateConnectionStatus as void Function(List<ConnectivityResult> event)?);
+    // Mendengarkan perubahan status koneksi
+    _connectivity.onConnectivityChanged.listen(_updateConnectionStatus as void
+        Function(List<ConnectivityResult> event)?);
   }
 
+  // Fungsi untuk memperbarui dan menampilkan status koneksi
   void _updateConnectionStatus(ConnectivityResult connectivityResult) {
+    // Jika tidak ada koneksi internet
     if (connectivityResult == ConnectivityResult.none) {
+      // Menampilkan snackbar peringatan tidak ada koneksi
       Get.rawSnackbar(
           messageText: const Text('Tidak ada koneksi',
               style: TextStyle(color: Colors.white, fontSize: 14)),
@@ -27,6 +33,7 @@ class NetworkController extends GetxController {
           margin: EdgeInsets.zero,
           snackStyle: SnackStyle.GROUNDED);
     } else {
+      // Jika koneksi tersedia, tutup snackbar jika sedang terbuka
       if (Get.isSnackbarOpen) {
         Get.closeCurrentSnackbar();
       }

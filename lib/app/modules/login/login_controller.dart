@@ -5,10 +5,10 @@ class LoginController extends GetxController {
   // Text editing controllers untuk form fields
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  
+
   // Observable untuk status password visibility
   final RxBool isPasswordVisible = false.obs;
-  
+
   // Observable untuk status loading
   final RxBool isLoading = false.obs;
 
@@ -23,10 +23,9 @@ class LoginController extends GetxController {
 
     try {
       isLoading.value = true;
-      
+
       // Jika berhasil login
       Get.offNamed('/home');
-      
     } catch (e) {
       // Handle error
       Get.snackbar(

@@ -1,7 +1,4 @@
-enum Activity {
-  belanja,
-  memasak
-}
+enum Activity { belanja, memasak }
 
 extension ActivityExtension on Activity {
   String get name {

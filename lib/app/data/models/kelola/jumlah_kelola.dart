@@ -1,8 +1,4 @@
-enum Quantity {
-  kg,
-  pcs,
-  ikat
-}
+enum Quantity { kg, pcs, ikat }
 
 extension QuantityExtension on Quantity {
   String get name {

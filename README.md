@@ -4,7 +4,7 @@ My Pantry adalah aplikasi manajemen persediaan bahan makanan yang dirancang khus
 1. Memantau stok secara real-time
 2. Mengelola berbagai jenis bahan makanan
 3. Dapatkan notifikasi bahan kadaluwarsa
-4. Pantau riwayat transaksi
+4. Pantau riwayat aktivitas
 
 ## Fitur Utama:
 

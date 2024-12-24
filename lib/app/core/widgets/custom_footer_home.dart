@@ -1,35 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mypantry_app/app/routes/home_routes.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
+import 'package:mypantry_app/app/routes/activity_routes.dart';
 
+// Widget kustom untuk footer pada halaman home
 class CustomFooterHome extends StatelessWidget {
   const CustomFooterHome({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      // Mengatur lebar footer sesuai dengan lebar layar
       width: MediaQuery.of(context).size.width,
       child: Container(
+        // Mengatur warna latar belakang footer
         color: AppColors.freshgreen,
+        // Memberikan padding pada konten footer
         padding: const EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 8,
         ),
         child: Row(
+          // Mengatur posisi item agar berada di ujung-ujung container
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset(
-              'assets/images/icon/activity.png',
-              width: 65, 
-              height: 65,
-              fit: BoxFit.contain,
-              semanticLabel: 'Activity',
+            // Tombol untuk navigasi ke halaman Activity
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(ActivityRoutes.activity);
+              },
+              child: Image.asset(
+                'assets/images/icon/activity.png',
+                width: 70,
+                height: 70,
+                fit: BoxFit.contain,
+                semanticLabel: 'Activity', // Label untuk accessibility
+              ),
             ),
-            Image.asset(
-              'assets/images/icon/home.png',
-              width: 50,
-              height: 50, 
-              fit: BoxFit.contain,
-              semanticLabel: 'Home',
+            // Tombol untuk navigasi ke halaman Home
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(HomeRoutes.home);
+              },
+              child: Image.asset(
+                'assets/images/icon/home.png',
+                width: 55,
+                height: 55,
+                fit: BoxFit.contain,
+                semanticLabel: 'Home', // Label untuk accessibility
+              ),
             ),
           ],
         ),

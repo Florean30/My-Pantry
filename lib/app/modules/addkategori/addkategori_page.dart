@@ -1,90 +1,108 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/services.dart';
 import 'addkategori_controller.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
+import 'package:mypantry_app/app/core/widgets/custom_footer_home.dart';
 
-class AddkategoriPage extends StatefulWidget {
+// Halaman untuk menambah kategori bahan makanan
+class AddkategoriPage extends GetView<AddKategoriController> {
   const AddkategoriPage({super.key});
-
-  @override
-  State<AddkategoriPage> createState() => AddkategoriPageState();
-}
-
-class AddkategoriPageState extends State<AddkategoriPage> {
-  final _formKey = GlobalKey<FormState>();
-  String _name = '';
-  // String? _imagePath;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF3F3),
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 95, 16, 537),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
+              // Tombol kembali ke halaman sebelumnya
+              SafeArea(
+                child: InkWell(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Image.asset(
+                      'assets/images/icon/back.png',
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
+                ),
+              ),
+
+              // Judul halaman
               const Text(
                 'Tambah Jenis Bahan\nMakanan',
                 style: TextStyle(
-                  color: Color(0xFF212121),
+                  color: AppColors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
                 ),
                 textAlign: TextAlign.center,
               ),
 
-
+              // Garis pemisah
               const Divider(
                 color: AppColors.darkgreen,
                 thickness: 4,
                 indent: 20,
                 endIndent: 20,
               ),
-              
+
               const SizedBox(height: 20),
+
+              // Form container untuk input data kategori
               Container(
-                padding: const EdgeInsets.fromLTRB(7, 16, 7, 6),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFC8E6C9),
+                  color: AppColors.lightgreen,
                   borderRadius: BorderRadius.circular(7),
                 ),
                 child: Form(
-                  key: _formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Bagian input nama dan gambar
                       SizedBox(
                         width: 192,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Field nama kategori
                             const Text(
                               'Nama : Umbi-umbian',
                               style: TextStyle(
-                                color: Color(0xFF212121),
+                                color: AppColors.black,
                                 fontSize: 12,
                               ),
                             ),
                             const SizedBox(height: 18),
+
+                            // Field upload gambar
                             Row(
                               children: [
                                 const Text(
                                   'Gambar :',
                                   style: TextStyle(
-                                    color: Color(0xFF212121),
+                                    color: AppColors.black,
                                     fontSize: 12,
                                   ),
                                 ),
                                 const SizedBox(width: 6),
+                                // Tombol Add Photo
                                 Container(
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 3,
                                     vertical: 1,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFFFF3F3),
+                                    color: AppColors.white,
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.black.withOpacity(0.25),
@@ -96,17 +114,18 @@ class AddkategoriPageState extends State<AddkategoriPage> {
                                   child: const Text(
                                     'Add Photo',
                                     style: TextStyle(
-                                      color: Color(0xFF3D3D3D),
+                                      color: AppColors.black,
                                       fontSize: 10,
                                     ),
                                   ),
                                 ),
                                 const SizedBox(width: 6),
+                                // Icon kamera
                                 SizedBox(
-                                  width: 12,
-                                  height: 12,
-                                  child: Image.network(
-                                    'https://cdn.builder.io/api/v1/image/assets/TEMP/17906973ea5d41d4e30807e2f78ed119a940ff42f1e79f6d468916beb6b105c8?placeholderIfAbsent=true&apiKey=e915180113584dff873c474d1c0b12f9',
+                                  width: 30,
+                                  height: 30,
+                                  child: Image.asset(
+                                    'assets/images/icon/cam.png',
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -116,16 +135,14 @@ class AddkategoriPageState extends State<AddkategoriPage> {
                         ),
                       ),
                       const SizedBox(height: 13),
+
+                      // Tombol Save
                       Align(
                         alignment: Alignment.centerRight,
                         child: ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // Handle save
-                            }
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFFF5722),
+                            backgroundColor: AppColors.orange,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -148,6 +165,8 @@ class AddkategoriPageState extends State<AddkategoriPage> {
           ),
         ),
       ),
+      // Widget footer kustom
+      bottomNavigationBar: const CustomFooterHome(),
     );
   }
 }

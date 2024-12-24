@@ -3,7 +3,6 @@ import 'package:mypantry_app/app/data/models/kelola/aktivitas_kelola.dart';
 import 'package:mypantry_app/app/data/models/kelola/jumlah_kelola.dart';
 import 'package:mypantry_app/app/data/models/kelola/penyimpanan_kelola.dart';
 
-
 class KelolaItem {
   final JenisCategory category;
   final String name;

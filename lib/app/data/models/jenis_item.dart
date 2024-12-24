@@ -3,16 +3,16 @@ import 'package:mypantry_app/app/data/models/jenis/jenis_kategori.dart';
 class JenisItem {
   final String id;
   final String title;
-  final String imagePath; 
+  final String imagePath;
   final JenisCategory category;
   final bool isSelected;
   final bool isAsset;
 
-  static var kering; 
-  static var basah; 
-  static var sayur; 
-  static var buah; 
-  static var lauk; 
+  static var kering;
+  static var basah;
+  static var sayur;
+  static var buah;
+  static var lauk;
 
   const JenisItem({
     required this.id,
@@ -20,7 +20,7 @@ class JenisItem {
     required this.imagePath,
     required this.category,
     this.isSelected = false,
-    this.isAsset = true, 
+    this.isAsset = true,
   });
 
   JenisItem copyWith({
