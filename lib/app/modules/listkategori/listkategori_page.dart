@@ -23,12 +23,13 @@ class ListkategoriPage extends GetView<ListkategoriController> {
                   alignment: Alignment.topLeft,
                   child: Image.asset(
                     'assets/images/icon/back.png',
-                    width: 40,
-                    height: 40,
+                    width: 50,
+                    height: 50,
                   ),
                 ),
               ),
             ),
+            const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 35),
               child: Row(
@@ -55,11 +56,12 @@ class ListkategoriPage extends GetView<ListkategoriController> {
                           TextSpan(
                             text: '30',
                             style: TextStyle(
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.bold,
                               color: AppColors.orange,
                             ),
                           ),
-                          TextSpan(text: ' macam bahan makanan dijenis ini.'),
+                          TextSpan(
+                              text: ' macam bahan makanan dikategori ini.'),
                         ],
                       ),
                     ),
@@ -161,7 +163,7 @@ class ListkategoriPage extends GetView<ListkategoriController> {
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: AppColors.orange,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
+                                      borderRadius: BorderRadius.circular(40),
                                     ),
                                     minimumSize: const Size(61, 26),
                                   ),
@@ -184,6 +186,16 @@ class ListkategoriPage extends GetView<ListkategoriController> {
               ),
             )
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.orange,
+        onPressed: () {
+          Get.toNamed(KelolaRoutes.kelola);
+        },
+        child: const Icon(
+          Icons.add,
+          size: 30,
         ),
       ),
       bottomNavigationBar: const CustomFooterHome(),

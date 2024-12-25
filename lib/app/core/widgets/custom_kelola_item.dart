@@ -119,12 +119,12 @@ class CustomDropdownKelolaItemState extends State<CustomDropdownKelolaItem> {
             ),
             const SizedBox(height: 4.0),
 
-            // Field untuk memilih tanggal kadaluarsa
+            // Field untuk memilih tanggal kadaluwarsa
             Row(
               children: [
                 const Expanded(
                   child: Text(
-                    'Tanggal Kadaluarsa',
+                    'Kadaluwarsa',
                   ),
                 ),
                 const Text(':'),
@@ -227,7 +227,7 @@ class CustomDropdownKelolaItemState extends State<CustomDropdownKelolaItem> {
             // Dropdown untuk memilih tempat penyimpanan
             buildDropdownField(
               controller: storageController,
-              label: 'Storage',
+              label: 'Penyimpanan',
               onTap: () => showDropdownDialog(
                 title: 'Pilih Storage',
                 items: Storage.values.map((e) => e.name).toList(),
@@ -251,7 +251,7 @@ class CustomDropdownKelolaItemState extends State<CustomDropdownKelolaItem> {
                     minimumSize: const Size(61, 26),
                   ),
                   child: const Text(
-                    'Save',
+                    'Hapus',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14,
@@ -271,7 +271,7 @@ class CustomDropdownKelolaItemState extends State<CustomDropdownKelolaItem> {
                     minimumSize: const Size(61, 26),
                   ),
                   child: const Text(
-                    'Hapus',
+                    'Save',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14,

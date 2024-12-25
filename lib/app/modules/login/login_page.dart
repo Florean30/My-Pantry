@@ -2,12 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'login_controller.dart';
-import 'package:mypantry_app/app/core/theme/app_color.dart';
 import 'package:mypantry_app/app/routes/home_routes.dart';
 import 'package:mypantry_app/app/routes/register_routes.dart';
 import 'package:mypantry_app/app/routes/forgot_routes.dart';
+import 'package:mypantry_app/app/core/theme/app_color.dart';
 
-// Halaman Login yang menggunakan GetX Controller
+// Halaman untuk login
 class LoginPage extends GetView<LoginController> {
   const LoginPage({super.key});
 
@@ -80,7 +80,7 @@ class LoginPage extends GetView<LoginController> {
                                   decoration: InputDecoration(
                                     labelText: 'Email',
                                     labelStyle: const TextStyle(
-                                      color: AppColors.black,
+                                      color: AppColors.deepblack,
                                       fontSize: 14,
                                     ),
                                     filled: true,
@@ -108,7 +108,7 @@ class LoginPage extends GetView<LoginController> {
                                     decoration: InputDecoration(
                                       labelText: 'Password',
                                       labelStyle: const TextStyle(
-                                        color: AppColors.black,
+                                        color: AppColors.deepblack,
                                         fontSize: 14,
                                       ),
                                       filled: true,

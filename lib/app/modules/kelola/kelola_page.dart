@@ -28,12 +28,13 @@ class KelolaPage extends GetView<KelolaController> {
                   alignment: Alignment.topLeft,
                   child: Image.asset(
                     'assets/images/icon/back.png',
-                    width: 40,
-                    height: 40,
+                    width: 50,
+                    height: 50,
                   ),
                 ),
               ),
             ),
+            const SizedBox(height: 20),
             // Widget dropdown custom untuk kelola item
             const CustomDropdownKelolaItem(),
             const SizedBox(height: 24),

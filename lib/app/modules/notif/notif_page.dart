@@ -31,12 +31,13 @@ class NotifPage extends GetView<NotifController> {
                         alignment: Alignment.topLeft,
                         child: Image.asset(
                           'assets/images/icon/back.png',
-                          width: 40,
-                          height: 40,
+                          width: 50,
+                          height: 50,
                         ),
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
                   Card(
                     color: AppColors.lightgreen,
                     child: Padding(
@@ -52,7 +53,7 @@ class NotifPage extends GetView<NotifController> {
                                   'Bumbu Basah',
                                   style: TextStyle(
                                     fontSize: 18,
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 Row(
@@ -77,7 +78,7 @@ class NotifPage extends GetView<NotifController> {
                                             ),
                                             const TextSpan(
                                                 text:
-                                                    ' macam bahan makanan dijenis ini.'),
+                                                    ' macam bahan makanan dikategori ini yang kadaluwarsa.'),
                                           ],
                                         ),
                                       ),
@@ -106,7 +107,7 @@ class NotifPage extends GetView<NotifController> {
                                     backgroundColor: AppColors.orange,
                                     foregroundColor: Colors.white,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
+                                      borderRadius: BorderRadius.circular(40),
                                     ),
                                   ),
                                   onPressed: () {

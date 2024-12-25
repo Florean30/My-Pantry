@@ -37,13 +37,13 @@ class RegisterPage extends GetView<RegisterController> {
                     alignment: Alignment.topLeft,
                     child: Image.asset(
                       'assets/images/icon/back.png',
-                      width: 40,
-                      height: 40,
+                      width: 50,
+                      height: 50,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               // Judul halaman Register
               const Center(
                 child: Text(
@@ -143,7 +143,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               Obx(() {
                 return TextFormField(
-                  obscureText: controller.isRepeatPasswordVisible.value, // Mengatur visibility text untuk password
+                  obscureText: controller.isRepeatPasswordVisible
+                      .value, // Mengatur visibility text untuk password
 
                   decoration: InputDecoration(
                     filled: true,

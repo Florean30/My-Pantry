@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mypantry_app/app/modules/activity/activity_controller.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
-import 'package:mypantry_app/app/core/widgets/custom_footer_home.dart';
 
 // Halaman untuk activity
 class ActivityPage extends GetView<ActivityController> {
@@ -27,13 +26,13 @@ class ActivityPage extends GetView<ActivityController> {
                     alignment: Alignment.topLeft,
                     child: Image.asset(
                       'assets/images/icon/back.png',
-                      width: 40,
-                      height: 40,
+                      width: 50,
+                      height: 50,
                     ),
                   ),
                 ),
               ),
-
+              const SizedBox(height: 30),
               // Judul halaman
               const Text(
                 'Activity',
@@ -123,9 +122,7 @@ class ActivityPage extends GetView<ActivityController> {
                   ),
                 ),
               ),
-
               const SizedBox(height: 15),
-
               // Tombol aksi di bagian bawah
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -155,8 +152,6 @@ class ActivityPage extends GetView<ActivityController> {
           ),
         ),
       ),
-      // Widget footer kustom
-      bottomNavigationBar: const CustomFooterHome(),
     );
   }
 }

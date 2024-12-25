@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// Controller untuk halaman registrasi menggunakan GetX
+// Controller untuk halaman registrasi
 class RegisterController extends GetxController {
   // Key untuk form validation
   final formKey = GlobalKey<FormState>();

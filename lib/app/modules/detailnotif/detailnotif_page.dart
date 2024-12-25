@@ -29,13 +29,13 @@ class DetailnotifPage extends GetView<DetailnotifController> {
                   alignment: Alignment.topLeft,
                   child: Image.asset(
                     'assets/images/icon/back.png',
-                    width: 40,
-                    height: 40,
+                    width: 50,
+                    height: 50,
                   ),
                 ),
               ),
             ),
-        
+
             Expanded(
               child: ListView.builder(
                 itemCount: 2,
@@ -52,14 +52,14 @@ class DetailnotifPage extends GetView<DetailnotifController> {
                         children: [
                           // Judul kategori item
                           const Text(
-                            "Sayuran",
+                            "Bumbu Basah",
                             style: TextStyle(
                               fontSize: 18,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           const SizedBox(height: 10),
-        
+
                           // Menampilkan nama item
                           const Row(
                             children: [
@@ -68,16 +68,16 @@ class DetailnotifPage extends GetView<DetailnotifController> {
                               Expanded(child: Text(' Kecap')),
                             ],
                           ),
-        
+
                           // Field untuk memilih tanggal kadaluarsa
                           const Row(
                             children: [
-                              Expanded(child: Text('Tanggal Kadaluarsa')),
+                              Expanded(child: Text('Kadaluwarsa')),
                               Text(':'),
                               Expanded(child: Text(' 01/01/2025')),
                             ],
                           ),
-        
+
                           // Field untuk memilih tanggal aktivitas
                           const Row(
                             children: [
@@ -86,16 +86,16 @@ class DetailnotifPage extends GetView<DetailnotifController> {
                               Expanded(child: Text(' 1')),
                             ],
                           ),
-        
+
                           // Field untuk memilih lokasi penyimpanan
                           const Row(
                             children: [
-                              Expanded(child: Text('Lokasi Penyimpanan')),
+                              Expanded(child: Text('Penyimpanan')),
                               Text(':'),
                               Expanded(child: Text(' Lemari')),
                             ],
                           ),
-        
+
                           // Tombol Save
                           Align(
                             alignment: Alignment.centerRight,
@@ -152,7 +152,7 @@ class DetailnotifPage extends GetView<DetailnotifController> {
               ),
             ),
             // Widget dropdown custom untuk kelola item
-        
+
             const SizedBox(height: 24),
           ],
         ),

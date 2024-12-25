@@ -27,24 +27,23 @@ class AddkategoriPage extends GetView<AddKategoriController> {
                     alignment: Alignment.topLeft,
                     child: Image.asset(
                       'assets/images/icon/back.png',
-                      width: 40,
-                      height: 40,
+                      width: 50,
+                      height: 50,
                     ),
                   ),
                 ),
               ),
-
+              const SizedBox(height: 30),
               // Judul halaman
               const Text(
-                'Tambah Jenis Bahan\nMakanan',
+                'Tambah Kategori\nBahan Makanan',
                 style: TextStyle(
                   color: AppColors.black,
                   fontSize: 20,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
-
               // Garis pemisah
               const Divider(
                 color: AppColors.darkgreen,
@@ -52,9 +51,7 @@ class AddkategoriPage extends GetView<AddKategoriController> {
                 indent: 20,
                 endIndent: 20,
               ),
-
               const SizedBox(height: 20),
-
               // Form container untuk input data kategori
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -76,14 +73,13 @@ class AddkategoriPage extends GetView<AddKategoriController> {
                           children: [
                             // Field nama kategori
                             const Text(
-                              'Nama : Umbi-umbian',
+                              'Nama     : Umbi-umbian',
                               style: TextStyle(
                                 color: AppColors.black,
-                                fontSize: 12,
+                                fontSize: 14,
                               ),
                             ),
                             const SizedBox(height: 18),
-
                             // Field upload gambar
                             Row(
                               children: [
@@ -91,7 +87,7 @@ class AddkategoriPage extends GetView<AddKategoriController> {
                                   'Gambar :',
                                   style: TextStyle(
                                     color: AppColors.black,
-                                    fontSize: 12,
+                                    fontSize: 14,
                                   ),
                                 ),
                                 const SizedBox(width: 6),
@@ -115,15 +111,15 @@ class AddkategoriPage extends GetView<AddKategoriController> {
                                     'Add Photo',
                                     style: TextStyle(
                                       color: AppColors.black,
-                                      fontSize: 10,
+                                      fontSize: 14,
                                     ),
                                   ),
                                 ),
                                 const SizedBox(width: 6),
                                 // Icon kamera
                                 SizedBox(
-                                  width: 30,
-                                  height: 30,
+                                  width: 40,
+                                  height: 40,
                                   child: Image.asset(
                                     'assets/images/icon/cam.png',
                                     fit: BoxFit.contain,
@@ -135,7 +131,6 @@ class AddkategoriPage extends GetView<AddKategoriController> {
                         ),
                       ),
                       const SizedBox(height: 13),
-
                       // Tombol Save
                       Align(
                         alignment: Alignment.centerRight,

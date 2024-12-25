@@ -33,13 +33,13 @@ class ProfilePage extends GetView<ProfileController> {
                     alignment: Alignment.topLeft,
                     child: Image.asset(
                       'assets/images/icon/back.png',
-                      width: 40,
-                      height: 40,
+                      width: 50,
+                      height: 50,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               const Center(
                 child: Text(
                   'Profile',
@@ -62,14 +62,16 @@ class ProfilePage extends GetView<ProfileController> {
               CustomTextField(
                 label: 'Name',
                 controller: controller.nameController,
-                validator: controller.validateName, hintText: '',
+                validator: controller.validateName,
+                hintText: '',
               ),
               // Field input untuk email pengguna
               CustomTextField(
                 label: 'Email',
                 controller: controller.emailController,
                 keyboardType: TextInputType.emailAddress,
-                validator: controller.validateEmail, hintText: '',
+                validator: controller.validateEmail,
+                hintText: '',
               ),
               const SizedBox(height: 150),
               // Tombol untuk mengedit profil

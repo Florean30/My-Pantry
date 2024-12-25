@@ -33,13 +33,13 @@ class ForgotPage extends GetView<ForgotController> {
                     alignment: Alignment.topLeft,
                     child: Image.asset(
                       'assets/images/icon/back.png',
-                      width: 40,
-                      height: 40,
+                      width: 50,
+                      height: 50,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               // Judul halaman
               const Text(
                 'Forgot Password',

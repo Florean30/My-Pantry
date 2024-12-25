@@ -4,7 +4,7 @@ import 'home_controller.dart';
 import 'package:mypantry_app/app/routes/profile_routes.dart';
 import 'package:mypantry_app/app/routes/notif_routes.dart';
 import 'package:mypantry_app/app/routes/addkategori_routes.dart';
-import 'package:mypantry_app/app/routes/kelola_routes.dart';
+import 'package:mypantry_app/app/routes/listkategori_routes.dart';
 import 'package:mypantry_app/app/core/theme/app_color.dart';
 import 'package:mypantry_app/app/core/widgets/custom_kategori_grid.dart';
 import 'package:mypantry_app/app/core/widgets/custom_footer_home.dart';
@@ -97,8 +97,7 @@ class HomePage extends GetView<HomeController> {
             const SizedBox(height: 30),
             // Row untuk menampilkan judul dan ikon tambah
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Padding(
                   padding: EdgeInsets.only(left: 20),
@@ -138,19 +137,21 @@ class HomePage extends GetView<HomeController> {
                     ],
                   ),
                 ),
-                // Ikon tambah
-                GestureDetector(
-                  onTap: () {
-                    Get.toNamed(AddkategoriRoutes.addkategori);
-                  },
-                  child: Image.asset(
-                    'assets/images/icon/add.png',
-                    width: 80,
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: FloatingActionButton(
+                    backgroundColor: AppColors.orange,
+                    onPressed: () {
+                      Get.toNamed(AddkategoriRoutes.addkategori);
+                    },
+                    child: const Icon(
+                      Icons.add,
+                      size: 30,
+                    ),
                   ),
                 ),
               ],
             ),
-
             // Garis pemisah atas
             const Divider(
               color: AppColors.darkgreen,
@@ -304,7 +305,7 @@ class CustomCardUpdate extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Get.toNamed(KelolaRoutes.kelola);
+                      Get.toNamed(ListkategoriRoutes.listkategori);
                     },
                     child: const Text("Lihat"),
                   ),

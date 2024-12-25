@@ -26,7 +26,7 @@ class PasswordInput extends StatelessWidget {
                   decoration: InputDecoration(
                     labelText: 'New Password',
                     labelStyle: const TextStyle(
-                      color: AppColors.black,
+                      color: AppColors.deepblack,
                       fontSize: 14,
                     ),
                     filled: true,
@@ -69,9 +69,9 @@ class PasswordInput extends StatelessWidget {
                 return TextFormField(
                   obscureText: controller.isConfirmPasswordVisible.value,
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password',
+                    labelText: 'Repeat Password',
                     labelStyle: const TextStyle(
-                      color: AppColors.black,
+                      color: AppColors.deepblack,
                       fontSize: 14,
                     ),
                     filled: true,

@@ -30,13 +30,13 @@ class VerificationPage extends GetView<VerificationController> {
                     alignment: Alignment.topLeft,
                     child: Image.asset(
                       'assets/images/icon/back.png',
-                      width: 40,
-                      height: 40,
+                      width: 50,
+                      height: 50,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
 
               // Judul halaman
               const Center(
@@ -45,7 +45,7 @@ class VerificationPage extends GetView<VerificationController> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.deepblack,
+                    color: AppColors.black,
                   ),
                 ),
               ),

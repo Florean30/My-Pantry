@@ -20,7 +20,7 @@ class EmailInput extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Email',
                   labelStyle: const TextStyle(
-                    color: AppColors.black,
+                    color: AppColors.deepblack,
                     fontSize: 14,
                   ),
                   // Mengatur tampilan background input field
